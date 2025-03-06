@@ -57,16 +57,6 @@ If you found this repository useful, please consider citing our work:
 }
 ```
 
-This codebase is built using our [prior work](https://github.com/alfredgu001324/MapUncertaintyPrediction), if your found this helpful, please also consider citing:
-
-```
-@Inproceedings{GuSongEtAl2024,
-  author    = {Gu, Xunjiang and Song, Guanyu and Gilitschenski, Igor and Pavone, Marco and Ivanovic, Boris},
-  title     = {Producing and Leveraging Online Map Uncertainty in Trajectory Prediction},
-  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year      = {2024}
-}
-```
 
 ## License
 
