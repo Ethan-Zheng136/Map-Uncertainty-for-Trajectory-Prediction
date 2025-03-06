@@ -17,20 +17,19 @@ Mapping checkpoints are [here](https://drive.google.com/drive/folders/1ZhCv4Z_yI
 
 ## Dataset
 
-I have uploaded all datasets (complete) for `MapTR`, `StreamMapNet`, `MapTRv2` and `MapTRv2 CL`. They are around 500GB each (StreamMapNet is around 200GB). You can download them through Hugging Face. They are located at [here](https://huggingface.co/datasets/alfredgu001324/MapBEVPrediction/tree/main) which should be easier to download.
-
+All the trajectory prediction data（for `MapTR`, `StreamMapNet`, `MapTRv2` and `MapTRv2 CL`）can be generated using our future checkpoints, with a total size of approximately 600GB.
 Dataset Structure is as follows:
 ```
-mapbevprediction
-├── stream_bev/
-├── maptr_bev/
-├── maptrv2_bev/
-│   ├── mini_val/
-│   |   ├── data/
-│   |   |   ├── scene-{scene_id}.pkl
-│   ├── train/
-│   ├── val/
-├── maptrv2_cent_bev/
+DelvingUncPrediction
+├── trj_data/
+│   ├── maptr/
+│   |   ├── train/
+│   |   |   ├── data/
+│   |   |   |   ├── scene-{scene_id}.pkl
+│   |   ├── val/
+│   ├── maptrv2/
+│   ├── maptrv2_CL/
+│   ├── stream/
 ```
 
 ## Catalog
