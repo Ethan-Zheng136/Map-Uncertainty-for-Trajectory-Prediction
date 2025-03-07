@@ -51,18 +51,7 @@ DelvingUncPrediction
 - [x] Untested version released + Instructions
 - [x] Initialization
 
-## Citation
 
-If you found this repository useful, please consider citing our work:
-
-```
-@Inproceedings{GuSongEtAl2024,
-  author    = {Gu, Xunjiang and Song, Guanyu and Gilitschenski, Igor and Pavone, Marco and Ivanovic, Boris},
-  title     = {Accelerating Online Mapping and Behavior Prediction via Direct BEV Feature Attention},
-  booktitle = {European Conference on Computer Vision (ECCV)},
-  year      = {2024}
-}
-```
 
 
 ## License
