@@ -22,10 +22,6 @@ This repository contains the implementation of our ongoing research on mapping u
 - [Trajectory Train and Eval](docs/trj.md)
 - [Visualization](docs/visualization.md)
 
-## Results
-
-Mapping checkpoints are [here](https://drive.google.com/drive/folders/1ZhCv4Z_yI7PLirHLS64luE1fV2EPG0sB?usp=sharing). Trajectory prediction checkpoints are [here](https://drive.google.com/drive/folders/1e0xRQqlIhYaAz3ErfNhZ57FCGN97vyzt?usp=sharing). 
-
 ## Dataset
 
 All the trajectory prediction data（for `MapTR`, `StreamMapNet`, `MapTRv2` and `MapTRv2 CL`）can be generated using our future checkpoints, with a total size of approximately 600GB.
