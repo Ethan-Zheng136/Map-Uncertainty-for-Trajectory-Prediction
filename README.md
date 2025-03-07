@@ -16,6 +16,7 @@ We propose a lightweight, self-supervised approach that enhances the synergy bet
 ![pipeline](assets/overview.png)
 
 This is our demo video:
+
 https://github.com/user-attachments/assets/c21ff2ed-4b79-4e5b-b939-9f0c2b32c1e2
 ## Getting Started
 - [Environment Setup](docs/env.md)
