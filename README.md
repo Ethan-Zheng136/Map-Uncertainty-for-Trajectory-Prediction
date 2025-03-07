@@ -7,6 +7,7 @@
 
 <sup>1</sup> Institute for AI Industry Research (AIR), Tsinghua University · <sup>2</sup> Bosch Corporate Research <br>
 <sup>3</sup> Institute for Interdisciplinary Information Sciences (IIIS), Tsinghua University <br>
+<sup>4</sup> University of Toronto · <sup>5</sup> The University of Hong Kong <br>
 <sub>(* indicates equal contribution)</sub>
 </div>
 
