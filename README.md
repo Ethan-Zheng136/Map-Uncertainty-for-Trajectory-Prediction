@@ -1,4 +1,15 @@
-# Delving into Mapping Uncertainty for Mapless Trajectory Prediction
+<div align="center">
+<h2>🚀 Delving into Mapping Uncertainty for Mapless Trajectory Prediction</h2>
+
+**Zongzheng Zhang**<sup>1,2*</sup> · **Xuchong Qiu**<sup>2*</sup> · **Boran Zhang**<sup>1</sup> · **Guantian Zheng**<sup>1</sup> · **Xunjiang Gu**<sup>1</sup> <br>
+**Guoxuan Chi**<sup>1</sup> · **Huan-ang Gao**<sup>1</sup> · **Leichen Wang**<sup>2</sup> · **Ziming Liu**<sup>1</sup> · **Xinrun Li**<sup>2</sup> <br>
+**Igor Gilitschenski**<sup>3</sup> · **Hongyang Li**<sup>1</sup> · [**Hang Zhao**](https://hangzhaomit.github.io/)<sup>3</sup> · [**Hao Zhao**](https://sites.google.com/view/fromandto/)<sup>1</sup>
+
+<sup>1</sup> Institute for AI Industry Research (AIR), Tsinghua University · <sup>2</sup> Bosch Corporate Research <br>
+<sup>3</sup> Institute for Interdisciplinary Information Sciences (IIIS), Tsinghua University <br>
+<sub>(* indicates equal contribution)</sub>
+</div>
+
 This repository contains the implementation of our ongoing research on mapping uncertainty for mapless trajectory prediction, which we plan to submit to IROS 2025.
 ![](assets/overview.png)
 
