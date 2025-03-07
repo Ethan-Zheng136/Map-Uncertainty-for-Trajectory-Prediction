@@ -1,7 +1,7 @@
 # Delving into Mapping Uncertainty for Mapless Trajectory Prediction
 This repository contains the official implementation of [Delving into Mapping Uncertainty for Mapless Trajectory Prediction] published in IROS 2025. 
 
-![](assets/flowchart.png)
+![](assets/overview.pdf)
 
 ## Getting Started
 - [Environment Setup](docs/env.md)
