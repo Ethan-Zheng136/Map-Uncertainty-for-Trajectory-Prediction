@@ -1,6 +1,5 @@
 # Delving into Mapping Uncertainty for Mapless Trajectory Prediction
-This repository contains the official implementation of [Delving into Mapping Uncertainty for Mapless Trajectory Prediction] published in IROS 2025. 
-
+This repository contains the implementation of our ongoing research on mapping uncertainty for mapless trajectory prediction, which we plan to submit to IROS 2025.
 ![](assets/overview.png)
 
 ## Getting Started
