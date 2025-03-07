@@ -15,6 +15,8 @@ This repository contains the implementation of our ongoing research on mapping u
 We propose a lightweight, self-supervised approach that enhances the synergy between online mapping and trajectory prediction, providing interpretability on when and where map uncertainty is beneficial. Additionally, we introduce a covariance-based uncertainty modeling method that better aligns with road geometry. Extensive ablation studies show that our method outperforms previous integration strategies, achieving up to 23.6% improvement in mapless trajectory prediction on the nuScenes dataset.
 ![pipeline](assets/overview.png)
 
+This is our demo video:
+https://github.com/user-attachments/assets/c21ff2ed-4b79-4e5b-b939-9f0c2b32c1e2
 ## Getting Started
 - [Environment Setup](docs/env.md)
 - [Prepare Dataset](docs/prepare_dataset.md)
