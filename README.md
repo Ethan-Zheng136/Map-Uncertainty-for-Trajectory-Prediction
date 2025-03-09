@@ -75,13 +75,13 @@ DelvingUncPrediction
 
 ## Catalog
 
-- [x] Visualization Code
 - [x] Code release
   - [x] MapTR
   - [x] MapTRv2
   - [x] StreamMapNet
   - [x] HiVT
   - [x] DenseTNT
+- [x] Visualization Code
 - [x] Untested version released + Instructions
 - [x] Initialization
 
