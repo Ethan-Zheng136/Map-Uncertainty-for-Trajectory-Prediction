@@ -42,4 +42,4 @@ For evaluating MapTRv2 Centerline, add an `--centerline` argument.
 
 Please uncomment [this line](https://github.com/alfredgu001324/MapUncertaintyPrediction/blob/8ab64116982303d373eb85fea2501e139a09e781/HiVT_modified/models/hivt.py#L138) to save the pkl files necessary for [later visualization](https://github.com/alfredgu001324/MapUncertaintyPrediction/blob/main/docs/visualization.md).
 
-```
+
