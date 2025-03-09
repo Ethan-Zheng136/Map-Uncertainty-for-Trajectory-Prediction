@@ -21,7 +21,7 @@ cd ..
 
 #### Folder Structure
 ```
-MapBEVPrediction
+DelvingUncPrediction
 ├── nuscenes/
 ├── processed/
 ├── adaptor_files/
@@ -59,7 +59,7 @@ python adaptor_vis.py --data_path ../trj_data/maptr
 
 After running the above script, **folder structure** should look like this:
 ```
-MapUncertaintyPrediction
+DelvingUncPrediction
 ├── nuscenes/
 ├── processed/
 ├── adaptor_files/
