@@ -18,7 +18,7 @@ unzip can_bus.zip
 
 **Folder Structure**
 ```
-MapBEVPrediction
+DelvingUncPrediction
 ├── nuscenes/
 │   ├── can_bus/
 │   ├── maps/
@@ -56,7 +56,7 @@ Using the above code will generate `nuscenes_infos_temporal_{train,val}.pkl`.
 
 **Folder structure**
 ```
-MapBEVPrediction
+DelvingUncPrediction
 ├── nuscenes/
 ├── processed/
 │   ├── maptr/
@@ -87,7 +87,7 @@ Using the above code will generate `nuscenes_map_infos_temporal_{train,val}.pkl`
 
 **Folder structure**
 ```
-MapBEVPrediction
+DelvingUncPrediction
 ├── nuscenes/
 ├── processed/
 │   ├── maptr/
@@ -111,7 +111,7 @@ Using the above code will generate `nuscenes_map_infos_{train,val}_{newsplit,}.p
 
 **Folder structure**
 ```
-MapBEVPrediction
+DelvingUncPrediction
 ├── nuscenes/
 ├── processed/
 │   ├── maptr/
