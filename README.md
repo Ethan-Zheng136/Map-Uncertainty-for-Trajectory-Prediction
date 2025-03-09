@@ -18,9 +18,8 @@ We propose a lightweight, self-supervised approach that enhances the synergy bet
 ## Prediction Method
 
 | Prediction Method |  | HiVT [] |  |  | DenseTNT [] |  |
-|----------------------|---------|---------|------|---------|---------|------|
+|----------------------|---------|---------|--------|---------|---------|--------|
 | Online HD Map Method | minADE↓ | minFDE↓ | MR↓ | minADE↓ | minFDE↓ | MR↓ |
-|----------------------|---------|---------|------|---------|---------|------|
 | **MapTR [base]** | 0.4015 | 0.8404 | 0.0960 | 1.1228 | 2.2151 | 0.3726 |
 | **MapTR [base] + Unc [Gu]** | 0.3910 | 0.8049 | 0.0818 | 1.1946 | 2.2666 | 0.3848 |
 | **MapTR [base] + CovMat [Ours]** | 0.3672 | 0.7395 | 0.0756 | 1.0856 | 2.0969 | 0.3728 |
