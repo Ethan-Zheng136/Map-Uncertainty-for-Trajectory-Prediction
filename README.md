@@ -15,7 +15,7 @@ This repository contains the implementation of our ongoing research on mapping u
 We propose a lightweight, self-supervised approach that enhances the synergy between online mapping and trajectory prediction, providing interpretability on when and where map uncertainty is beneficial. Additionally, we introduce a covariance-based uncertainty modeling method that better aligns with road geometry. Extensive ablation studies show that our method outperforms previous integration strategies, achieving up to 23.6% improvement in mapless trajectory prediction on the nuScenes dataset.
 ![pipeline](assets/overview.png)
 
-## Prediction Method
+To evaluate the impact of our uncertainty modeling strategy on downstream trajectory prediction, we conduct experiments across multiple combinations of online map estimation and prediction methods. Our approach consistently outperforms existing methods, achieving state-of-the-art results across all evaluated settings. With HiVT, our method improves minADE and minFDE by over 6% on MapTR and MapTRv2, while also achieving a significant 13.6% reduction in MR on MapTRv2. For DenseTNT, the largest gains are observed on MapTRv2Centerline, with minADE, minFDE, and MR improving by 19.4%, 10.8%, and 23.6%, respectively. These results demonstrate the effectiveness of our uncertainty modeling in enhancing trajectory prediction accuracy.(compared with base???)
 
 | Prediction Method |  |HiVT|  |  |DenseTNT|  |
 |------------------------|---------|---------|---------|---------|---------|---------|
