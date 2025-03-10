@@ -24,7 +24,7 @@ initial future trajectories prediction from these two streams.
 
 To evaluate the impact of our uncertainty modeling strategy on downstream trajectory prediction, we conduct experiments across multiple combinations of online map estimation(MapTR, MapTRv2, MapTRv2-Centerline and StreamMapNet) and prediction methods(HiVT and DenseTNT). Our approach consistently outperforms existing methods, achieving state-of-the-art results across all evaluated settings. With HiVT, our method improves minADE and minFDE by over 6% on MapTR and MapTRv2, while also achieving a significant 13.6% reduction in MR on MapTRv2. For DenseTNT, the largest gains are observed on MapTRv2-Centerline, with minADE, minFDE, and MR improving by 19.4%, 10.8%, and 23.6%, respectively. These results demonstrate the effectiveness of our uncertainty modeling in enhancing trajectory prediction accuracy.
 
-
+![pipeline](assets/Main Table.png)
 This is our demo video:
 
 https://github.com/user-attachments/assets/c21ff2ed-4b79-4e5b-b939-9f0c2b32c1e2
