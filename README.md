@@ -22,10 +22,11 @@ downstream trajectory prediction module, which operates in two parallel streams:
 Finally, the proposed Proprioceptive Scenario Gating (MLP network) dynamically adapts the optimal trajectory prediction based on the
 initial future trajectories prediction from these two streams.
 
-## Our results:
+## Our results
 
 ![Main_Table](assets/Main_Table.png)
-This is our demo video:
+
+## Our demo video
 
 https://github.com/user-attachments/assets/c21ff2ed-4b79-4e5b-b939-9f0c2b32c1e2
 ## Getting Started
