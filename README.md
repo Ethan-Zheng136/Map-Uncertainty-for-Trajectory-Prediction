@@ -15,7 +15,7 @@ This repository contains the implementation of our ongoing research on mapping u
 We propose a lightweight, self-supervised approach that enhances the synergy between online mapping and trajectory prediction, providing interpretability on when and where map uncertainty is beneficial. Additionally, we introduce a covariance-based uncertainty modeling method that better aligns with road geometry. Extensive ablation studies show that our method outperforms previous integration strategies, achieving up to 23.6% improvement in mapless trajectory prediction on the nuScenes dataset.
 
 ![pipeline](assets/overview.png)
-Model overview. We first estimate map elements online by encoding multi-view images into a common BEV feature space
+We first estimate map elements online by encoding multi-view images into a common BEV feature space
 to regress map element vertices. Each vertex’s uncertainty is modeled using our proposed Covariance-based Uncertainty method, which
 leverages 2D Gaussian distribution templates. This uncertainty information, along with the original map vertices, is then passed to the
 downstream trajectory prediction module, which operates in two parallel streams: one that incorporates uncertainty and one that does not.
