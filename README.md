@@ -28,7 +28,7 @@ initial future trajectories prediction from these two streams.
 
 ## Our demo video
 
-https://github.com/user-attachments/assets/c21ff2ed-4b79-4e5b-b939-9f0c2b32c1e2
+[![Watch the video](assets/video_cover.png](https://youtu.be/SbicP4tTv7I)
 
 ## Getting Started
 - [Environment Setup](docs/env.md)
