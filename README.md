@@ -38,6 +38,9 @@ initial future trajectories prediction from these two streams.
 - [Trajectory Train and Eval](docs/trj.md)
 - [Visualization](docs/visualization.md)
 
+## Checkpoints
+Our trajectory prediction checkpoints are [here](https://drive.google.com/drive/folders/1npxVMMCyMgckBBXUnuRW8M3sYexpAObd?usp=sharing).
+
 ## Dataset
 
 All the trajectory prediction data（for `MapTR`, `StreamMapNet`, `MapTRv2` and `MapTRv2 CL`）can be generated using our future checkpoints, with a total size of approximately 600GB.
