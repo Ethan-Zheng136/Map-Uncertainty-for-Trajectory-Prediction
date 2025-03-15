@@ -14,7 +14,9 @@
 This repository contains the implementation of our ongoing research on mapping uncertainty for mapless trajectory prediction, which we plan to submit to IROS 2025.
 We propose a lightweight, self-supervised approach that enhances the synergy between online mapping and trajectory prediction, providing interpretability on when and where map uncertainty is beneficial. Additionally, we introduce a covariance-based uncertainty modeling method that better aligns with road geometry. Extensive ablation studies show that our method outperforms previous integration strategies, achieving up to 23.6% improvement in mapless trajectory prediction on the nuScenes dataset.
 
+## Overview
 ![pipeline](assets/overview.png)
+
 We first estimate map elements online by encoding multi-view images into a common BEV feature space
 to regress map element vertices. Each vertex’s uncertainty is modeled using our proposed Covariance-based Uncertainty method, which
 leverages 2D Gaussian distribution templates. This uncertainty information, along with the original map vertices, is then passed to the
