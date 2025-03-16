@@ -30,7 +30,7 @@ initial future trajectories prediction from these two streams.
 
 ## Our demo video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SbicP4tTv7I" frameborder="0" allowfullscreen></iframe>
+[![Watch the video](assets/video_cover.png)](https://youtu.be/SbicP4tTv7I)
 
 ## Getting Started
 - [Environment Setup](docs/env.md)
