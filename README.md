@@ -29,7 +29,7 @@ initial future trajectories prediction from these two streams.
 ![Main_Table](assets/Main_Table.png)
 
 ## Our demo video
-
+Click the cover image to watch the HD demo on YouTube.
 [![Watch the video](assets/video_cover.png)](https://youtu.be/SbicP4tTv7I)
 
 ## Getting Started
