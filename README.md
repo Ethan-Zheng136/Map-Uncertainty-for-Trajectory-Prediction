@@ -14,6 +14,9 @@
 This repository contains the implementation of our ongoing research on mapping uncertainty for mapless trajectory prediction, which we submitted to **IROS 2025**.
 We propose a lightweight, self-supervised approach that enhances the synergy between online mapping and trajectory prediction, providing interpretability on when and where map uncertainty is beneficial. Additionally, we introduce a covariance-based uncertainty modeling method that better aligns with road geometry. Extensive ablation studies show that our method outperforms previous integration strategies, achieving up to 23.6% improvement in mapless trajectory prediction on the nuScenes dataset.
 
+## Project Page
+[https://ethan-zheng136.github.io/Dev-Unc/](https://ethan-zheng136.github.io/Dev-Unc/)
+
 ## Overview
 ![pipeline](assets/overview.png)
 
