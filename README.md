@@ -5,13 +5,15 @@
 **Guoxuan Chi**<sup>1</sup> · **Huan-ang Gao**<sup>1</sup> · **Leichen Wang**<sup>2</sup> · **Ziming Liu**<sup>1</sup> · **Xinrun Li**<sup>2</sup> <br>
 [**Igor Gilitschenski**](https://www.gilitschenski.org/igor/)<sup>4</sup> · [**Hongyang Li**](https://lihongyang.info/)<sup>5</sup> · [**Hang Zhao**](https://hangzhaomit.github.io/)<sup>3</sup> · [**Hao Zhao**](https://sites.google.com/view/fromandto/)<sup>1</sup>
 
+ **IROS 2025**
+ 
 <sup>1</sup> Institute for AI Industry Research (AIR), Tsinghua University · <sup>2</sup> Bosch Corporate Research <br>
 <sup>3</sup> Institute for Interdisciplinary Information Sciences (IIIS), Tsinghua University <br>
 <sup>4</sup> University of Toronto · <sup>5</sup> The University of Hong Kong <br>
 <sub>(* indicates equal contribution)</sub>
 </div>
 
- **IROS 2025**
+
  
 We propose a lightweight, self-supervised approach that enhances the synergy between online mapping and trajectory prediction, providing interpretability on when and where map uncertainty is beneficial. Additionally, we introduce a covariance-based uncertainty modeling method that better aligns with road geometry. Extensive ablation studies show that our method outperforms previous integration strategies, achieving up to 23.6% improvement in mapless trajectory prediction on the nuScenes dataset.
 
