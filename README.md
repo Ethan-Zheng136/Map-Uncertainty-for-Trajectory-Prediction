@@ -83,3 +83,16 @@ DelvingUncPrediction
 ## License
 
 This repository is licensed under [Apache 2.0](LICENSE).
+
+
+## Citation
+If you find this project useful, feel free to cite our work!
+
+```bibtex
+@article{Map_Uncertainty,
+  title={Delving into Mapping Uncertainty for Mapless Trajectory Prediction},
+  author={Zongzheng Zhang and Xuchong Qiu and Boran Zhang and Guantian Zheng and Xunjiang Gu and Guoxuan Chi and Huan-ang Gao and Leichen Wang and Ziming Liu and Xinrun Li and Igor Gilitschenski and Hongyang Li and Hang Zhao and Hao Zhao},
+  journal={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year={2025}
+}
+```
