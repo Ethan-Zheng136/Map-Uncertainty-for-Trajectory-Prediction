@@ -89,10 +89,10 @@ This repository is licensed under [Apache 2.0](LICENSE).
 If you find this project useful, feel free to cite our work!
 
 ```bibtex
-@article{Map_Uncertainty,
+@article{zhang2025delving,
   title={Delving into Mapping Uncertainty for Mapless Trajectory Prediction},
-  author={Zongzheng Zhang and Xuchong Qiu and Boran Zhang and Guantian Zheng and Xunjiang Gu and Guoxuan Chi and Huan-ang Gao and Leichen Wang and Ziming Liu and Xinrun Li and Igor Gilitschenski and Hongyang Li and Hang Zhao and Hao Zhao},
-  journal={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  author={Zhang, Zongzheng and Qiu, Xuchong and Zhang, Boran and Zheng, Guantian and Gu, Xunjiang and Chi, Guoxuan and Gao, Huan-ang and Wang, Leichen and Liu, Ziming and Li, Xinrun and others},
+  journal={arXiv preprint arXiv:2507.18498},
   year={2025}
 }
 ```
