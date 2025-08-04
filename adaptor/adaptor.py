@@ -12,7 +12,7 @@ import numpy as np
 from trajdata import MapAPI
 from trajdata import SceneBatch, UnifiedDataset
 from trajdata.caching.scene_cache import SceneCache
-
+ 
 import argparse
 
 def normalize_lanes(x, y, lanes, theta):
