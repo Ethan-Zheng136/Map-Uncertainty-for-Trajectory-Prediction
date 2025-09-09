@@ -12,6 +12,7 @@ import functools
 
 from torch.distributions.multivariate_normal import MultivariateNormal
 from torch.distributions.laplace import Laplace
+from torch.distributions.multivariate_normal import MultivariateNormal
 
 def reduce_loss(loss, reduction):
     """Reduce loss as specified.
@@ -234,7 +235,7 @@ def pts_nll_loss_laplace(pred, target):
     sample_size = target.shape[0] * target.shape[1]  # number of 2-D points
 
     # Reshape predictions and targets
-    pred_reshape = pred.reshape(sample_size, 4)      # [x_mean, y_mean, beta_x, beta_y] 4000, 4
+    pred_reshape = pred.reshape(sample_size, 5)      # [x_mean, y_mean, beta_x, beta_y] 4000, 4
     pts_pred = pred_reshape[:, :2]                   # 4000, 2
     pts_betas = pred_reshape[:, 2:4]
     target = target.reshape(sample_size, 2)
@@ -243,8 +244,42 @@ def pts_nll_loss_laplace(pred, target):
     m = Laplace(pts_pred, pts_betas)
 
     nll = -m.log_prob(target)                         # 4000, 2
+    # print('nll:', nll.shape)
 
     return nll 
+
+@mmcv.jit(derivate=True, coderize=True)
+@weighted_loss
+def pts_nll_loss_gaussian(pred, target):
+    sample_size = target.shape[0] * target.shape[1]  # number of 2-D points
+
+
+    pred_reshape = pred.reshape(sample_size, 5)      # [x_mean, y_mean, beta_x, beta_y, corr]
+    pts_pred = pred_reshape[:, :2]                   # [x_mean, y_mean]
+    pts_betas = pred_reshape[:, 2:4]                 # [beta_x, beta_y]
+    corr = torch.clamp(pred_reshape[:, 4], -1 + 1e-5, 1 - 1e-5)  # [corr]
+    
+    target = target.reshape(sample_size, 2)          
+
+    var_x = pts_betas[:, 0] ** 2 + 1e-6               # sigma_x^2
+    var_y = pts_betas[:, 1] ** 2 + 1e-6               # sigma_y^2
+    cov_xy = corr * pts_betas[:, 0] * pts_betas[:, 1]            
+
+    cov_matrix = torch.zeros(sample_size, 2, 2, device=pred.device)
+    cov_matrix[:, 0, 0] = var_x
+    cov_matrix[:, 1, 1] = var_y
+    cov_matrix[:, 0, 1] = cov_xy
+    cov_matrix[:, 1, 0] = cov_xy
+    
+    m = MultivariateNormal(pts_pred, covariance_matrix=cov_matrix)
+
+    reg_loss = torch.mean(torch.abs(pts_betas))
+    nll = -m.log_prob(target).unsqueeze(-1)
+
+    nll = nll + 0.01 * reg_loss
+    
+    return nll
+
 
 
 @mmcv.jit(derivate=True, coderize=True)
@@ -451,13 +486,11 @@ class PtsNLLLoss(nn.Module):
                 Defaults to None.
         """
         assert reduction_override in (None, 'none', 'mean', 'sum')
-        reduction = (reduction_override if reduction_override else self.reduction)
-
-        # loss_bbox = self.loss_weight * pts_l1_loss(pred, target, weight, reduction=reduction, avg_factor=avg_factor)
-        # weight = weight.reshape(-1, 2)[:, 0]
+        reduction = (reduction_override if reduction_override else self.reduction)               
         weight = weight.reshape(-1, 2)    # 200, 20, 2 -> 4000, 2
-        # breakpoint()
-        loss_bbox = self.loss_weight * pts_nll_loss_laplace(pred, target, weight, reduction=reduction, avg_factor=avg_factor)
+        pred_laplace = pred[..., :4]
+        loss_bbox= self.loss_weight * pts_nll_loss_gaussian(pred, target, weight, reduction=reduction, avg_factor=avg_factor).unsqueeze(-1).expand_as(weight)
+        
         # pred.shape= 200,20,4; target.shape=200, 20, 2; weight.shape=4000,2; reduction='mean', avg_factor=39
         return loss_bbox
 
@@ -787,3 +820,75 @@ class MyChamferDistance(nn.Module):
             return loss_pts, indices1, indices2
         else:
             return loss_pts
+
+
+@LOSSES.register_module()
+class PtsNLLHyperCDLoss(nn.Module):
+    """Loss with HyperChamfer Distance replacing Euclidean distance in PtsNLLLoss.
+
+    Args:
+        reduction (str, optional): The method to reduce the loss.
+            Options are "none", "mean" and "sum".
+        loss_weight (float, optional): The weight of loss.
+        alpha (float, optional): The scaling factor for HyperChamfer Distance.
+    """
+
+    def __init__(self, reduction='mean', loss_weight=1.0, alpha=1.0):
+        super(PtsNLLHyperCDLoss, self).__init__()
+        self.reduction = reduction
+        self.loss_weight = loss_weight
+        self.alpha = alpha
+
+    def forward(self,
+                pred,
+                target,
+                weight=None,
+                avg_factor=None,
+                reduction_override=None):
+        """Forward function.
+
+        Args:
+            pred (torch.Tensor): The prediction.
+            target (torch.Tensor): The learning target of the prediction.
+            weight (torch.Tensor, optional): The weight of loss for each
+                prediction. Defaults to None.
+            avg_factor (int, optional): Average factor that is used to average
+                the loss. Defaults to None.
+            reduction_override (str, optional): The reduction method used to
+                override the original reduction method of the loss.
+                Defaults to None.
+        """
+        assert reduction_override in (None, 'none', 'mean', 'sum')
+        reduction = (reduction_override if reduction_override else self.reduction)
+
+        # Reshape predictions and targets
+        sample_size = target.shape[0] * target.shape[1]
+        pred_reshape = pred.reshape(sample_size, 5)  # [x_mean, y_mean, beta_x, beta_y]
+        pts_pred = pred_reshape[:, :2]
+        pts_betas = pred_reshape[:, 2:4]
+        target = target.reshape(sample_size, 2)
+
+        # Compute hyperbolic distances
+        diffs = pts_pred - target
+        squared_diffs = torch.sum(diffs**2, dim=-1)
+        hyperbolic_distances = torch.arccosh(1 + self.alpha * squared_diffs)
+
+        # Create Laplace distribution
+        m = Laplace(pts_pred, pts_betas)
+
+        # Calculate negative log likelihood using hyperbolic distances
+        nll = -m.log_prob(hyperbolic_distances.unsqueeze(-1))
+
+        # Reshape weight if provided
+        if weight is not None:
+            weight = weight.reshape(-1, 2)  # Adjust weight shape if needed
+
+        # Apply reduction
+        if reduction == 'mean':
+            loss_bbox = self.loss_weight * (nll.mean() if avg_factor is None else nll.sum() / avg_factor)
+        elif reduction == 'sum':
+            loss_bbox = self.loss_weight * nll.sum()
+        else:
+            loss_bbox = self.loss_weight * nll
+
+        return loss_bbox
