@@ -75,7 +75,7 @@ def denormalize_2d_pts(pts, pc_range):
     return new_pts
 
 
-class new_reg_branch_laplace(nn.Module):
+class new_reg_branch(nn.Module):
     def __init__(self, input_dim=256, hidden_dim=256):
         super().__init__()
         self.layers = nn.Sequential(
@@ -92,9 +92,9 @@ class new_reg_branch_laplace(nn.Module):
         h = self.layers(x)
         means = self.fc_means(h)
         # stds = torch.exp(self.fc_stds(h)) # stds are always non-negative
-        # stds = torch.clamp(torch.exp(self.fc_stds(h)), min=1e-5, max=10)
-        stds = torch.clamp(F.softplus(self.fc_stds(h)), min=1e-5, max=10)
-        out = torch.cat([means, stds], dim=2)
+        stds = torch.clamp(torch.exp(self.fc_stds(h)), min=1e-5, max=10)
+        corr = torch.tanh(self.fc_corr(h)) # corr is in the range [-1, 1]
+        out = torch.cat([means, stds, corr], dim=2)
         return out
 
 
@@ -239,7 +239,7 @@ class MapTRv2Head(DETRHead):
         # reg_branch.append(Linear(self.embed_dims, self.code_size))
         # reg_branch = nn.Sequential(*reg_branch)
 
-        reg_branch = new_reg_branch_laplace()
+        reg_branch = new_reg_branch()
 
         def _get_clones(module, N):
             return nn.ModuleList([copy.deepcopy(module) for i in range(N)])
